@@ -26,26 +26,30 @@ html, body {
   position: relative;
   margin-left: 20%;
   margin-right: 20%;
-  top:100px; /* change for mobile */
+  top:200px; /* change for mobile */
 }
 .message {
     border-radius: 15px;
     background: red;
-    font-size: 20px;
+    font-size: 15px;
     text-align: center;
+    width: 70%;
     color: white;
     padding: 20px;
 }
+.message:hover{
+  animation: colorChange 0.5s;
+}
 .heading{
-  font-size: 50px;
+  font-size: 60px;
   color: white;
 }
 .emailUs{
-  font-size: 30px;
+  font-size: 25px;
 }
 a{
   color: white;
-  font-weight: bolder;
+  text-decoration: none;
 }
 .typewriter h1 {
   overflow: hidden; /* Ensures the content is not revealed until the animation */
@@ -68,4 +72,8 @@ a{
 @keyframes blink-caret {
   from, to { border-color: transparent }
   50% { border-color: orange; }
+}
+@keyframes colorChange {
+  from { background: red }
+  to { background: black }
 }
