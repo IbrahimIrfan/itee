@@ -39,9 +39,15 @@ html, body {
 }
 .message:hover{
   animation: colorChange 0.5s;
+  -webkit-animation-fill-mode: forwards;
 }
 .heading{
   font-size: 60px;
+  color: white;
+}
+.subheading{
+  position: relative;
+  top: -20px;
   color: white;
 }
 .emailUs{
@@ -75,5 +81,5 @@ a{
 }
 @keyframes colorChange {
   from { background: red }
-  to { background: black }
+  to { background: #b20000 }
 }
