@@ -20,7 +20,6 @@ html, body {
     display: block;
     width: 100%;
     padding-top: -12.478%;
-    height: 1302.471px;
 }
 .main{
   position: relative;
@@ -72,7 +71,9 @@ a{
 .whiteBackground{
   border-radius: 15px;
   padding: 30px;
+  position: relative;
   background: white;
+  top: -20px;
   -webkit-box-shadow: 0px 11px 29px 15px rgba(0,0,0,0.75);
   -moz-box-shadow: 0px 11px 29px 15px rgba(0,0,0,0.75);
   box-shadow: 0px 11px 29px 15px rgba(0,0,0,0.75);
@@ -91,8 +92,27 @@ a{
   width: 300px;
   display: inline;
 }
+.heading2{
+  position: relative;
+  font-size: 45px;
+  top: -50px;
+  color: white;
+}
+.subheading2{
+  position: relative;
+  top: -70px;
+  color: white;
+}
 
+.footer{
+  height: 100px;
+  background: #505050;
+  color: black;
+}
 
+.copyrightText{
+  padding-top: 35px;
+}
 
 
 /* The typing effect */
