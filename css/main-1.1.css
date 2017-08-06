@@ -5,12 +5,9 @@
     background: #FF9A9A !important;
 }
 html, body {
-    margin: 0;
+    margin: 0 !important;
     color: white;
     font-family: 'Open Sans', sans-serif !important;
-}
-body{
-  margin-top: -20px !important;
 }
 .fluid-ratio-resize {
     max-width: 1839px;
@@ -74,6 +71,8 @@ a{
 .whiteBackground{
   border-radius: 15px;
   padding: 30px;
+  padding-left: 50px;
+  padding-right: 50px;
   position: relative;
   background: white;
   top: -100px;
@@ -85,6 +84,7 @@ a{
 .whiteBackground table tr td {
   color: black;
   font-size: 17px;
+  font-weight: 700;
   padding: 10px;
 }
 .whiteBackground table tr td img{
@@ -99,8 +99,10 @@ a{
   position: relative;
   font-size: 45px;
   top: -100px;
+  margin-top: 0 !important;
+  font-weight: bold;
   color: white;
-  font-family: 'Open Sans', sans-serif !important;
+  font-family: 'Open Sans', light !important;
 }
 .subheading2{
   position: relative;
@@ -131,9 +133,29 @@ a{
 .contact{
   color: black;
   font-size: 15px;
+  font-weight: bold;
   margin-top: 5px;
 }
-
+.heading3{
+  font-size: 25px;
+  font-weight: bold;
+  color: black;
+  margin-bottom: 10px;
+}
+.para{
+  color: black;
+}
+.fillerImg{
+  width: 50%;
+  margin-top: 15px;
+}
+.scroll{
+  overflow-y: scroll;
+  height: 50vh;
+}
+.disclaimer{
+  font-weight: 100;
+}
 /* The typing effect */
 @keyframes typing {
   from { width: 0 }
