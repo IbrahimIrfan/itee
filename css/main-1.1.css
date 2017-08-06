@@ -5,9 +5,12 @@
     background: #FF9A9A !important;
 }
 html, body {
-    margin: 0 !important;
+    margin: 0;
     color: white;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif !important;
+}
+body{
+  margin-top: -20px !important;
 }
 .fluid-ratio-resize {
     max-width: 1839px;
@@ -73,7 +76,7 @@ a{
   padding: 30px;
   position: relative;
   background: white;
-  top: -20px;
+  top: -100px;
   -webkit-box-shadow: 0px 11px 29px 15px rgba(0,0,0,0.75);
   -moz-box-shadow: 0px 11px 29px 15px rgba(0,0,0,0.75);
   box-shadow: 0px 11px 29px 15px rgba(0,0,0,0.75);
@@ -95,25 +98,41 @@ a{
 .heading2{
   position: relative;
   font-size: 45px;
-  top: -50px;
+  top: -100px;
   color: white;
+  font-family: 'Open Sans', sans-serif !important;
 }
 .subheading2{
   position: relative;
-  top: -70px;
+  top: -120px;
   color: white;
+  font-size: 18px;
+  font-family: 'Open Sans', sans-serif !important;
 }
-
 .footer{
   height: 100px;
   background: #505050;
   color: black;
 }
-
 .copyrightText{
   padding-top: 35px;
 }
-
+.red{
+  color: red;
+  margin-left: 5px;
+}
+#contact{
+  color: black;
+}
+.contactIcon{
+  height: 30px;
+  margin-right: 20px;
+}
+.contact{
+  color: black;
+  font-size: 15px;
+  margin-top: 5px;
+}
 
 /* The typing effect */
 @keyframes typing {
