@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Tangerine);
+@import url(https://fonts.googleapis.com/css?family=Gabriela);
 ::selection {
     background: #FF9A9A !important;
 }
@@ -24,9 +24,15 @@ html, body {
 }
 .main{
   position: relative;
+  margin-left: 15%;
+  margin-right: 15%;
+  top:200px; /* change for mobile */
+}
+.main2{
+  position: relative;
   margin-left: 20%;
   margin-right: 20%;
-  top:200px; /* change for mobile */
+  top:120px; /* change for mobile */
 }
 .message {
     border-radius: 15px;
@@ -44,16 +50,18 @@ html, body {
   -webkit-animation-fill-mode: forwards;
 }
 .heading{
-  font-size: 100px;
+  font-size: 60px;
+  top: -80px !important;
   color: white;
-  font-family: 'Tangerine', serif;
+  font-family: 'Gabriela';
   text-shadow: 2px 2px 2px #aaa;
-
 }
 .subheading{
   position: relative;
   top: -20px;
+  font-size: 20px;
   color: white;
+  margin-bottom: 50px;
 }
 .emailUs{
   font-size: 25px;
@@ -71,6 +79,9 @@ a{
   animation:
     typing 3.5s steps(40, end),
     blink-caret .75s step-end infinite;
+}
+.typing{
+  font-size: 35px;
 }
 .whiteBackground{
   border-radius: 15px;
@@ -155,11 +166,36 @@ a{
 }
 .scroll{
   overflow-y: scroll;
-  height: 50vh;
+  max-height: 50vh;
 }
-.disclaimer{
+.disclaimer, label{
   font-weight: 100;
 }
+.infoContainer, .formContainer{
+  display: inline-block; /*change for mobile */
+  vertical-align: top;
+  float: left;
+}
+.infoContainer{
+  padding-left: 50px;
+}
+.mapImg{
+  width: 80%;
+  margin-top: 20px;
+}
+#contactContainer{
+  padding: 30px;
+  max-height: 65vh !important;
+}
+.tableWrapper{
+  display: inline-block;
+  float: left;
+}
+.bothTablesWrapper{
+  display: table;
+  margin: 0 auto;
+}
+
 /* The typing effect */
 @keyframes typing {
   from { width: 0 }
@@ -174,4 +210,38 @@ a{
 @keyframes colorChange {
   from { background: red }
   to { background: #b20000 }
+}
+
+@media screen and (max-width: 750px) {
+  .main, .main2{
+    margin-left: 5%;
+    margin-right: 5%;
+    top: 170px;
+  }
+  .heading{
+    font-size: 50px;
+  }
+  .subheading{
+    font-size: 15px;
+    top: -10px;
+  }
+  .typing{
+    font-size: 20px;
+    margin-bottom: 30px;
+  }
+  .emailUs{
+    font-size: 20px;
+  }
+  .fillerImg{
+    width: 100%;
+  }
+  .heading2{
+    font-size: 30px;
+  }
+  .subheading2{
+    font-size: 15px;
+  }
+  .scroll{
+    max-height: 60vh;
+  }
 }
