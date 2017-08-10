@@ -216,7 +216,12 @@ a{
   .main, .main2{
     margin-left: 5%;
     margin-right: 5%;
+  }
+  .main{
     top: 170px;
+  }
+  .main2{
+    top:120px;
   }
   .heading{
     font-size: 50px;
