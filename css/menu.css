@@ -97,8 +97,9 @@
 #cssmenu.align-right li:first-child a:after {
   display: none;
 }
-@media screen and (max-width: 495px) {
+@media screen and (max-width: 600px) {
   #cssmenu ul li a{
-    font-size: 11px !important;
+    font-size: 15px !important;
+    padding: 15px 15px;
   }
 }
