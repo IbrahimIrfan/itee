@@ -147,7 +147,7 @@ a{
 }
 .contact{
   color: black;
-  font-size: 15px;
+  font-size: 13px;
   font-weight: bold;
   margin-top: 5px;
 }
@@ -180,7 +180,7 @@ a{
   padding-left: 50px;
 }
 .mapImg{
-  width: 80%;
+  width: 70%;
   margin-top: 20px;
 }
 #contactContainer{
@@ -194,6 +194,12 @@ a{
 .bothTablesWrapper{
   display: table;
   margin: 0 auto;
+}
+.link{
+  text-decoration: none;
+  color: black;
+  font-family: "Open Sans";
+  font-weight: 700;
 }
 
 /* The typing effect */
@@ -248,5 +254,16 @@ a{
   }
   .scroll{
     max-height: 60vh;
+  }
+}
+
+@media screen and (max-width: 1148px) {
+  .infoContainer{
+    margin-top: 25px;
+    padding-left: 0px;
+  }
+  .infoContainer, .formContainer{
+    margin: auto;
+    width: 50%;
   }
 }

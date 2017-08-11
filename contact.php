@@ -1,3 +1,51 @@
+<?php
+if(isset($_POST['submit'])) {
+
+ $email = strip_tags(trim($_POST['email']));
+ $fname = strip_tags(trim($_POST['firstname']));
+
+
+ if ($medInfo == ""){
+   $medInfo = "None";
+ }
+ $error = false;
+
+ if (empty($email) || empty($fname)){
+   $error = true;
+ }
+
+ if (!$error) {
+   // send confirmation email
+
+         require 'PHPMailer/PHPMailerAutoload.php';
+
+         $mail = new PHPMailer;
+
+         $mail->isSMTP();
+         $mail->Host = 'smtp.gmail.com';
+         $mail->SMTPAuth = true;
+         $mail->Username = 'email@gmail.com';
+         $mail->Password = 'password';
+         $mail->SMTPSecure = 'tls';
+         $mail->Port = 587;
+
+         $mail->setFrom('email@gmail.com', 'ITEE Group Canada');
+         $mail->addAddress($email);               // recipient
+
+         $mail->isHTML(true);           // Set email format to HTML
+
+         
+         $mail->Subject = 'New Form Submission: "' + $subject + '"';
+         $mail->Body    = $emailbody;
+
+         if(!$mail->send()) {
+           $errMSG = 'Mailer Error: ' . $mail->ErrorInfo;
+         }
+  }
+}
+
+?>
+
 <html>
 
 <head>
