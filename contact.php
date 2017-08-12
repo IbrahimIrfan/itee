@@ -1,47 +1,65 @@
 <?php
 if(isset($_POST['submit'])) {
 
- $email = strip_tags(trim($_POST['email']));
- $fname = strip_tags(trim($_POST['firstname']));
+$name = strip_tags(trim($_POST['name']));
+$email = strip_tags(trim($_POST['email']));
+$subject = strip_tags(trim($_POST['subject']));
+$message = strip_tags(trim($_POST['message']));
 
+$error = false;
+$errorCode = 0;
 
- if ($medInfo == ""){
-   $medInfo = "None";
- }
- $error = false;
+if (empty($email) || empty($name)|| empty($subject)|| empty($message)){
+ $error = true;
+ $errorCode = 1;
+}
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)){
+ $error = true;
+ $errorCode = 2;
+}
 
- if (empty($email) || empty($fname)){
-   $error = true;
- }
+if (!$error) {
 
- if (!$error) {
-   // send confirmation email
+ // send confirmation email
+ require 'PHPMailer/PHPMailerAutoload.php';
 
-         require 'PHPMailer/PHPMailerAutoload.php';
+ $mail = new PHPMailer;
 
-         $mail = new PHPMailer;
+ $mail->isSMTP();
+ $mail->Host = 'smtp.gmail.com';
+ $mail->SMTPAuth = true;
+ $mail->Username = 'noreplyitee@gmail.com';
+ $mail->Password = 'PxPZkxu4Cs92';
+ $mail->SMTPSecure = 'tls';
+ $mail->Port = 587;
+ $mail->isHTML(true);
 
-         $mail->isSMTP();
-         $mail->Host = 'smtp.gmail.com';
-         $mail->SMTPAuth = true;
-         $mail->Username = 'email@gmail.com';
-         $mail->Password = 'password';
-         $mail->SMTPSecure = 'tls';
-         $mail->Port = 587;
+ $mail->AddReplyTo($email, $name);
+ $mail->setFrom('noreplyitee@gmail.com', 'ITEE Group Canada');
+ $mail->addAddress('1ibrahimirfan@gmail.com'); //todo: change to iteecanada email
 
-         $mail->setFrom('email@gmail.com', 'ITEE Group Canada');
-         $mail->addAddress($email);               // recipient
+ $mail->Subject = 'New Form Submission: "' . $subject . '"';
+ $mail->Body    = 'A new form submission was made:<br><br>Name: ' . $name .
+ '<br>Subject: ' . $subject . '<br>Email: ' . $email . '<br>Message: ' . $message;
 
-         $mail->isHTML(true);           // Set email format to HTML
-
-         
-         $mail->Subject = 'New Form Submission: "' + $subject + '"';
-         $mail->Body    = $emailbody;
-
-         if(!$mail->send()) {
-           $errMSG = 'Mailer Error: ' . $mail->ErrorInfo;
-         }
+ if(!$mail->send()) {
+  $errorCode = $mail->ErrorInfo;
   }
+
+  $mail->addAddress($email);
+
+  $mail->Subject = 'Thanks for contacting us!';
+  $mail->Body    = 'Hi ' . $name . '<br><br>Thank you for contacting ITEE Group Canada.' .
+    ' A representative will respond to your inquiry as soon as possible.<br><br>Have a great day,' .
+    '<br><br>ITEE Group Canada<br>iteegroupcanada.com<br>info@iteecanada.com<br>(647)-224-7866<br>Skyward Business Centre - 2255 Dundas St W, Mississauga ON, Canada';
+
+  if(!$mail->send()) {
+   $errorCode = $mail->ErrorInfo;
+  }
+}
+
+header("Location: http://itee.unaux.com/contact.php?error=".$errorCode."");
+
 }
 
 ?>
@@ -70,7 +88,7 @@ if(isset($_POST['submit'])) {
                 <li><a href='index.html'><span>Home</span></a></li>
                 <li><a href='about.html'><span>About</span></a></li>
                 <li><a href='services.html'><span>Services</span></a></li>
-                <li class="active"><a href='contact.html'><span>Contact</span></a></li>
+                <li class="active"><a href='contact.php'><span>Contact</span></a></li>
             </ul>
         </div>
 
@@ -79,13 +97,14 @@ if(isset($_POST['submit'])) {
             <div class="subheading2">Start the conversation.</div>
 
             <div class="whiteBackground scroll" id="contactContainer">
+            <div id="errorMSG"></div>
             <div class="bothTablesWrapper">
                 <div class="formContainer">
                     <form id="contact" method='post'>
 
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input" type="text" id="firstname" name="firstname">
-                            <label class="mdl-textfield__label" for="firstname">Name<span class="red">*</span></label>
+                            <input class="mdl-textfield__input" type="text" id="name" name="name">
+                            <label class="mdl-textfield__label" for="name">Name<span class="red">*</span></label>
                         </div>
 
                         </br>
@@ -106,7 +125,7 @@ if(isset($_POST['submit'])) {
                         </br>
 
                         <div class="mdl-textfield mdl-js-textfield">
-                            <textarea class="mdl-textfield__input" type="text" rows="5" id="message"></textarea>
+                            <textarea class="mdl-textfield__input" type="text" rows="5" id="message" name="message"></textarea>
                             <label class="mdl-textfield__label" for="message">Message<span class="red">*</span></label>
                         </div>
 
