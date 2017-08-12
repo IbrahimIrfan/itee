@@ -262,8 +262,4 @@ a{
     margin-top: 25px;
     padding-left: 0px;
   }
-  .infoContainer, .formContainer{
-    margin: auto;
-    width: 50%;
-  }
 }

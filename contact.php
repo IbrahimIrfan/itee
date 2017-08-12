@@ -144,7 +144,7 @@ header("Location: http://itee.unaux.com/contact.php?error=".$errorCode."");
                     <img class="contactIcon" src="img/email.png" align="left">
                     <div class="contact"><span class="link">info@iteecanada.com</span></div></a>
                         <br>
-                        <a href="http://googlemapslink" target="_blank">
+                        <a href="https://www.google.ca/maps/place/Skyward+Business+Centre/@43.5327588,-79.6733302,17z/data=!3m1!4b1!4m5!3m4!1s0x882b439537bc905b:0x55731e2e7ab7d44f!8m2!3d43.5327549!4d-79.6711362" target="_blank">
                         <img class="contactIcon" src="img/address.png" align="left">
                         <div class="contact">Skyward Business Centre <br>2255 Dundas St W, Mississauga ON, Canada</div>
                         <center><img class="mapImg" src="img/map.png"></center></a>
