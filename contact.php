@@ -19,46 +19,66 @@ if(isset($_POST['submit'])) {
   }
 
   if (!$error) {
+$to      = 'info@iteegroupcanada.com';
+$subject = 'New Form Submission: "' . $subject . '"';
+$message = 'A new form submission was made:<br>Name: ' . $name .
+'<br>Subject: ' . $subject . '<br>Email: ' . $email . '<br>Message: ' . $message;
+$headers = 'From: info@iteegroupcanada.com' . "\r\n" .
+    'Reply-To: ' . $email . "\r\n";
 
-   // send confirmation email
-   require 'PHPMailer/PHPMailerAutoload.php';
+    $headers .= "MIME-Version: 1.0\r\n";
+    $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
 
-   $mail = new PHPMailer;
+mail($to, $subject, $message, $headers);
 
-   $mail->isSMTP();
-   $mail->Host = 'smtp.gmail.com';
-   $mail->SMTPAuth = true;
-   $mail->Username = 'noreplyitee@gmail.com';
-   $mail->Password = 'PxPZkxu4Cs92';
-   $mail->SMTPSecure = 'tls';
-   $mail->Port = 587;
-   $mail->isHTML(true);
 
-   $mail->AddReplyTo($email, $name);
-   $mail->setFrom('noreplyitee@gmail.com', 'ITEE Group Canada');
-   $mail->addAddress('1ibrahimirfan@gmail.com'); //todo: change to iteecanada email
+$to      = $email;
+$subject = 'Thanks for contacting us!';
+$message = 'Hi ' . $name . '<br>Thank you for contacting ITEE Group Canada.' .
+  ' A representative will respond to your inquiry as soon as possible.<br>Have a great day,' .
+  '<br>ITEE Group Canada<br>iteegroupcanada.com<br>(647)-224-7866<br>Skyward Business Centre - 2255 Dundas St W, Mississauga ON, Canada';
 
-   $mail->Subject = 'New Form Submission: "' . $subject . '"';
-   $mail->Body    = 'A new form submission was made:<br><br>Name: ' . $name .
-   '<br>Subject: ' . $subject . '<br>Email: ' . $email . '<br>Message: ' . $message;
+$headers = 'Reply-To: info@iteegroupcanada.com\r\n';
+$headers .= "MIME-Version: 1.0\r\n";
+$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
 
-   if(!$mail->send()) {
-    $errorCode = $mail->ErrorInfo;
-    }
+mail($to, $subject, $message, $headers);
+  //
+  //  $mail->isSMTP();
+  //  $mail->Host       = "relay-hosting.secureserver.net";
+  //  $mail->Port       = 25;
+  //  $mail->SMTPDebug  = 0;
+  //  $mail->SMTPSecure = "none";
+  //  $mail->SMTPAuth   = false;
+  //  $mail->Username   = "info@iteegroupcanada.com";
+  //  $mail->Password   = "";
+  //
+  // $mail->SetFrom('info@iteegroupcanada.com', 'ITEE');
+  //  $mail->isHTML(true);
+  //
+  //  $mail->addAddress('info@iteegroupcanada.com');
+  //
+  //  $mail->Subject = 'New Form Submission: "' . $subject . '"';
+  //  $mail->Body    = 'A new form submission was made:<br><br>Name: ' . $name .
+  //  '<br>Subject: ' . $subject . '<br>Email: ' . $email . '<br>Message: ' . $message;
+  //
+  //  if(!$mail->send()) {
+  //   $errorCode = $mail->ErrorInfo;
+  //   }
 
-    $mail->addAddress($email);
-
-    $mail->Subject = 'Thanks for contacting us!';
-    $mail->Body    = 'Hi ' . $name . '<br><br>Thank you for contacting ITEE Group Canada.' .
-      ' A representative will respond to your inquiry as soon as possible.<br><br>Have a great day,' .
-      '<br><br>ITEE Group Canada<br>iteegroupcanada.com<br>info@iteecanada.com<br>(647)-224-7866<br>Skyward Business Centre - 2255 Dundas St W, Mississauga ON, Canada';
-
-    if(!$mail->send()) {
-     $errorCode = $mail->ErrorInfo;
-    }
+    // $mail->addAddress($email);
+    //
+    // $mail->Subject = 'Thanks for contacting us!';
+    // $mail->Body    = 'Hi ' . $name . '<br><br>Thank you for contacting ITEE Group Canada.' .
+    //   ' A representative will respond to your inquiry as soon as possible.<br><br>Have a great day,' .
+    //   '<br><br>ITEE Group Canada<br>iteegroupcanada.com<br>info@iteecanada.com<br>(647)-224-7866<br>Skyward Business Centre - 2255 Dundas St W, Mississauga ON, Canada';
+    //
+    // if(!$mail->send()) {
+    //  $errorCode = $mail->ErrorInfo;
+    // }
   }
 
-  header("Location: http://itee.unaux.com/contact.php?error=".$errorCode."");
+  header("Location: http://iteegroupcanada.com/contact.php?error=".$errorCode."");
 
 }
 
